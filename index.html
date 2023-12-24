@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: lato, sans-serif;
+            background-color: #ddd;
+        }
+
+        nav {
+            padding: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: grid;
+            grid-template-columns: 1fr auto auto auto auto auto;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid black;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin-left: 30px;
+            height: 20px;
+            padding-top: 15px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        nav a:first-child {
+            margin-left: 0;
+            align-items: flex-start;
+        }
+
+        nav a:last-child{
+            border: 2px solid #1D2C3C;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        #body-container {
+            width: 70%;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 0;
+        }
+
+        .form-part {
+            padding: 15px;
+            position: relative;
+        }
+
+        .form-part h2 {
+            margin-bottom: 10px;
+        }
+
+        .form-part form {
+            display: grid;
+            gap: 10px;
+        }
+
+        .form-part:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        .form-part:nth-child(even) {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .input-container {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr;
+        }
+
+        #creditCard::placeholder {
+            /* text-align: center; */
+            letter-spacing: 2px;
+        }
+
+        footer {
+            color: #31708F;
+            text-align: center;
+            padding: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #f1f1f1;
+            color: white;
+            border: none;
+        }
+
+        .email-input {
+            width: 70%;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #038E7D;
+            color: white;
+            border: none;
+            font-size: 18px;
+            font-family: Lato;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .contact-support {
+            text-align: center;
+            color: #1D2C3C;
+            padding-left: 100px;
+        }
+
+        .numbers {
+            color: #548BC5;
+            font-size: 16px;
+            font-family: Lato;
+            font-weight: 700;
+            padding: 2px;
+            border: 1px solid #548BC5;
+            border-radius: 50%;
+        }
+
+        /* Add white-space: nowrap; to keep the price on a straight line */
+        .form-part h3,
+        .price {
+            white-space: nowrap;
+        }
+
+        .price {
+            color: #fff;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .price sup {
+            font-size: 16px;
+            vertical-align: top;
+        }
+
+        .price h1 {
+            display: inline;
+            font-size: 48px;
+            margin: 0;
+        }
+        .tow{
+            padding: 40px;
+        }
+        .credit{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            height: 50px;
+            /* padding-top: 20px; */
+        }
+        .credit>img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        
+        .credit>p{
+            color: white;
+            font-size: 16px;
+            font-family: Lato;
+            font-weight: 700;
+            padding-top: 10px;
+            padding-left: 20px;
+        }
+
+        .freelance>h2{
+            color: white;
+            font-size: 20px;
+            font-family: Lato;
+            font-weight: 700;
+            word-wrap: break-word
+        }
+        span.one{
+            color: white;
+            font-size: 24px;
+            font-family: Lato;
+            font-weight: 700;
+            bottom: 80%; 
+
+        }
+        span.two{
+            color: white;
+            font-size: 60px;
+            font-family: Lato;
+            font-weight: 300;
+            word-wrap: break-word;
+        }
+        span.three{
+            color: white;
+            font-size: 18px;
+            font-family: Lato;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+        .freelance p{
+            color: white;
+            font-size: 16px;
+            font-family: Lato;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 24px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .opt1{
+            color: white;
+            font-size: 16px;
+            font-family: Lato;
+            font-weight: 400;
+            line-height: 24px;
+            word-wrap: break-word
+        }
+        .opt2{
+            color: white;
+            font-size: 16px;
+            font-family: Lato;
+            font-weight: 700;
+            line-height: 24px;
+            word-wrap: break-word
+        }
+        .opt3{
+            color: white;
+            font-size: 16px;
+            font-family: Lato;
+            font-weight: 400;
+            line-height: 24px;
+            word-wrap: break-word
+        }
+        .pusher{
+            color: white;
+            font-size: 18px;
+            font-family: Lato;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 24px;
+            word-wrap: break-word;
+        }
+        .wp{
+            color: white;
+            font-size: 18px;
+            font-family: Lato;
+            font-style: italic;
+            font-weight: 700;
+            line-height: 24px;
+        }
+      
+        @media (max-width: 500px) {
+        nav {
+            grid-template-columns: 1fr;
+            position: unset;
+        }
+
+        nav a {
+            margin-left: 0;
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        nav a:last-child {
+            margin-top: 10px; /* Add margin to separate the button */
+            border: none; /* Remove the border */
+            padding: 10px;
+            text-align: center;
+        }
+
+        #body-container {
+            width: 100%; /* Occupy full width */
+            grid-template-columns: 1fr; /* Single column layout */
+        }
+
+        .form-part,
+        .form-part tow {
+            padding: 15px;
+        }
+
+        .form-part:nth-child(odd),
+        .form-part:nth-child(even) {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .tow {
+            padding: 15px; /* Adjust padding for the right side */
+        }
+
+        .credit {
+            grid-template-columns: 1fr; /* Single column layout for credit */
+            height: auto; /* Adjust height */
+        }
+
+        .credit > img {
+            width: 50%; /* Adjust image width */
+            margin: 0 auto; /* Center the image */
+        }
+
+        .credit > p {
+            padding-top: 10px;
+            text-align: center; /* Center the text */
+        }
+
+        .freelance p {
+            margin-bottom: 15px; /* Adjust margin for the text */
+        }
+    }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="navbar"><img src="wppusher-logo copy.png" alt="wp-pusher logo" srcset=""></a>
+
+    <a href="#">Download</a>
+    <a href="#">Learn More</a>
+    <a href="#">Pricing</a>
+    <a href="#">Help</a>
+    <a href="#" class="button">Account</a>
+</nav>
+
+<main>
+    <div id="body-container">
+        <div class="form-part">
+            <h2 style="color: #1D2C3C;font-size: 30px;font-family: Lato;font-weight: 400; text-shadow: #1D2C3C;">Checkout</h2><br><hr >
+            <h3 style="color: #1D2C3C;font-size: 18px;font-family: Lato;font-weight: 700;"><span class="numbers">1</span> Your Basic Information </h3>
+            <form>
+                <div style="display: flex; gap: 10px;">
+                    <div style="flex: 1;">
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" name="fname"placeholder="Jane" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" name="lname" placeholder="Doe" required>
+                    </div>
+                </div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="email-input" placeholder="janedoe@example.com">
+            </form>
+            
+            <form>
+                <h3 style="color: #1D2C3C;font-size: 18px;font-family: Lato;font-weight: 700;"><span class="numbers">2</span> Your Payment Information </h3>
+                <label for="creditCard">Credit Card:</label>
+                <div class="input-container">
+                    <input type="text" id="creditCard" name="input-group" placeholder="Card number">
+                    <input type="text" id="creditCard" name="input-group" placeholder="MM/YY">
+                    <input type="text" id="creditCard" name="input-group" placeholder="CVV">
+                </div>
+            </form><br><br><hr ><br>
+
+                <button type="submit">Buy WP Pusher</button><br>
+            <sub class="contact-support"><span class="numbers">?</span> <em><b>Need any help?</b></em> Don't hesitate to contact <i>support!</i></sub>
+
+        </div>
+
+        <div class="form-part tow">
+            <div class="freelance">
+                <h2>Freelance</h2>
+                <div class="num">
+                    <span class="one">$</span><span class="two">99</span><span class="three">/year</span>
+                    <p>automatically renew after one year</p>
+                </div>
+            </div>
+            <div class="opt">
+                <div><img  src="Combined Shape Copy 2 good.png" alt="good" style="padding-top: 10px;padding-right: 10px;"><span class="opt1">Use on </span><span class="opt2">5</span><span class="opt3"> client sites<br/><img src="Combined Shape Copy 2 good.png" alt="good shape" style="padding-right: 10px;">Private repositories<br/><img src="Combined Shape Copy 2 good.png" alt="good shape" style="padding-right: 10px;">Email support</span></div>
+            </div>
+            <div>
+                <div style="padding-top: 15px;"><span style="color: white; text-align: center; font-size: 16px; font-family: Lato; font-weight: 400; word-wrap: break-word">Need </span><span style="color: white; font-size: 16px; font-family: Lato; font-weight: 700; word-wrap: break-word">20</span><span style="color: white; font-size: 16px; font-family: Lato; font-weight: 400; word-wrap: break-word"> client sites?<br/><br></span><span style="color: white; font-size: 16px; font-family: Lato; font-weight: 700; word-wrap: break-word">Switch to the </span><span style="color: white; font-size: 16px; font-family: Lato; font-style: italic; font-weight: 700; word-wrap: break-word">Agency</span><span style="color: white; font-size: 16px; font-family: Lato; font-weight: 700; word-wrap: break-word"> plan</span><span style="color: white; font-size: 16px; font-family: Lato; font-weight: 400; word-wrap: break-word">.</span></div>
+            </div><hr style="color: #ffffff;">
+            <div class="pusher">
+                <p>FTP is horrible to deal with. <br><span class="WP">WP Pusher</span> solves that issue, <br>and the customer support is awesome!</p>
+            </div>
+            <div class="credit">
+                <img src="Bitmap.png" alt="Kirk Beard image">
+                <p>Kirk Beard</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy;2018 WP Pusher IVS  ·  Terms of Service.</p>
+</footer>
+
+</body>
+</html>
